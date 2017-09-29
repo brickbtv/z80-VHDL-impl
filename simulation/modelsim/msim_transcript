@@ -1,0 +1,183 @@
+# Reading D:/altera/12.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do Z80_cpu_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying D:\altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied D:\altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {D:/VHDL/Z80_cpu/Memory.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Memory
+# -- Compiling architecture Memory of Memory
+# vcom -93 -work work {D:/VHDL/Z80_cpu/Z80_types.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Compiling package Z80_types
+# vcom -93 -work work {D:/VHDL/Z80_cpu/ALU.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity ALU
+# -- Compiling architecture ALU of ALU
+# vcom -93 -work work {D:/VHDL/Z80_cpu/uart.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity UART
+# -- Compiling architecture rtl of UART
+# vcom -93 -work work {D:/VHDL/Z80_cpu/Z80_cpu.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Loading package Z80_types
+# -- Compiling entity Z80_cpu
+# -- Compiling architecture Z80 of Z80_cpu
+# 
+# vcom -93 -work work {D:/VHDL/Z80_cpu/simulation/modelsim/Z80_cpu_vhd_tst.vht}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Z80_cpu_vhd_tst
+# -- Compiling architecture Z80_cpu_arch of Z80_cpu_vhd_tst
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc"  Z80_cpu_vhd_tst
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps Z80_cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.z80_cpu_vhd_tst(z80_cpu_arch)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.z80_types
+# Loading work.z80_cpu(z80)
+# ** Failure: (vsim-3817) Port "RXD" of entity "z80_cpu" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /z80_cpu_vhd_tst/i1 File: D:/VHDL/Z80_cpu/Z80_cpu.vhd Line: 21
+# Loading work.memory(memory)
+# ** Fatal: Bad library format, library not compiled with ALTERA compiler.
+#    Time: 0 ps  Iteration: 0  Instance: /z80_cpu_vhd_tst/i1/Mem1 File: D:/VHDL/Z80_cpu/Z80_cpu.vhd Line: 138
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./Z80_cpu_run_msim_rtl_vhdl.do PAUSED at line 16
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/Memory.vhd
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Memory
+# -- Compiling architecture Memory of Memory
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/ALU.vhd
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity ALU
+# -- Compiling architecture ALU of ALU
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/Memory.vhd
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Memory
+# -- Compiling architecture Memory of Memory
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/uart.vhd
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity UART
+# -- Compiling architecture rtl of UART
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/Z80_cpu.vhd
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Loading package Z80_types
+# -- Compiling entity Z80_cpu
+# -- Compiling architecture Z80 of Z80_cpu
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/simulation/modelsim/Z80_cpu_vhd_tst.vht
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Z80_cpu_vhd_tst
+# -- Compiling architecture Z80_cpu_arch of Z80_cpu_vhd_tst
+vcom -93 -work work -O0 D:/VHDL/Z80_cpu/Z80_types.vhd
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Compiling package Z80_types
+vsim work.z80_cpu_vhd_tst
+# vsim work.z80_cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.z80_cpu_vhd_tst(z80_cpu_arch)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.z80_types
+# Loading work.z80_cpu(z80)
+# ** Failure: (vsim-3817) Port "RXD" of entity "z80_cpu" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /z80_cpu_vhd_tst/i1 File: D:/VHDL/Z80_cpu/Z80_cpu.vhd Line: 21
+# Loading work.memory(memory)
+# ** Fatal: Bad library format, library not compiled with ALTERA compiler.
+#    Time: 0 ps  Iteration: 0  Instance: /z80_cpu_vhd_tst/i1/Mem1 File: D:/VHDL/Z80_cpu/Z80_cpu.vhd Line: 138
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./Z80_cpu_run_msim_rtl_vhdl.do PAUSED at line 16
+vsim work.z80_cpu_vhd_tst
+# vsim work.z80_cpu_vhd_tst 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.z80_cpu_vhd_tst(z80_cpu_arch)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading work.z80_types
+# Loading work.z80_cpu(z80)
+# ** Failure: (vsim-3817) Port "RXD" of entity "z80_cpu" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /z80_cpu_vhd_tst/i1 File: D:/VHDL/Z80_cpu/Z80_cpu.vhd Line: 21
+# Loading work.memory(memory)
+# ** Fatal: Bad library format, library not compiled with ALTERA compiler.
+#    Time: 0 ps  Iteration: 0  Instance: /z80_cpu_vhd_tst/i1/Mem1 File: D:/VHDL/Z80_cpu/Z80_cpu.vhd Line: 138
+# FATAL ERROR while loading design
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./Z80_cpu_run_msim_rtl_vhdl.do PAUSED at line 16
+# A time value could not be extracted from the current line
+# A time value could not be extracted from the current line

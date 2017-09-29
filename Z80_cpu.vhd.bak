@@ -1,0 +1,217 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+use work.Z80_types.all;
+
+entity Z80_cpu is 
+	port (
+			ADDR: inout 	std_logic_vector(15 downto 0);	-- адресная шина
+			DATA: inout 	std_logic_vector(7 downto 0);		-- шина данных
+			M1:	out 		std_logic;								-- машинный цикл 1 (чтение кода операции из памяти)
+			MREQ: out 		std_logic;								-- запрос памяти
+			IORQ: out 		std_logic;								-- запрос ввода/вывода
+			RD:	out 		std_logic;								-- чтение
+			WR:	inout 	std_logic;								-- запись
+			RFSH: out 		std_logic;								-- регенерация динамической памяти
+			HALT:	out 		std_logic;								-- состояние останова
+			WAITS:in 		std_logic;								-- запрос ожидания
+			INT:	in 		std_logic;								-- запрос прерывания
+			NMI:	in 		std_logic;								-- немаскируемый запрос прерывания
+			RESET:in 		std_logic;								-- сброс
+			BUSRQ:in 		std_logic;								-- запрос доступа к шине
+			BUSAK:out 		std_logic;								-- предоставление доступа к шине
+			CLK:	in 		std_logic;								-- такт
+			Ucc:				std_logic;								-- плюс источника питания
+			Uss:				std_logic								-- заземление
+			);	
+end Z80_cpu;
+
+architecture Z80 of Z80_cpu is
+
+	component Memory
+		port (
+					ADDR: 		in 	std_logic_vector(15 downto 0);	-- адрес
+					DATA: 		inout	std_logic_vector(7 downto 0);		-- двунаправленная шина данных
+					CLK:		 	in 	std_logic;								-- синхросигнал
+					WR:			in 	std_logic								-- данные поданы на запись
+				);
+	end component Memory;
+
+	-- внутренние регистры процессора
+	signal PC: 			std_logic_vector(15 downto 0) := "0000000000000000";	-- Program Counter 
+	signal SP: 			std_logic_vector(15 downto 0);	-- Stack Pointer 
+	signal IX, IY: 	std_logic_vector(15 downto 0);	-- Index Registers - адресация
+	signal I: 			std_logic_vector(7 downto 0);		-- Interrupt Vector 
+	signal R: 			std_logic_vector(7 downto 0);		-- Refresh Register 
+	
+	-- регистры досутпные программно (блок главных регистров + блок вспомогательных (индекс 's'))
+	signal A,  B,  C,  D,  E,  F,  H,  L: std_logic_vector(7 downto 0);
+	signal As, Bs, Cs, Ds, Es, Fs, Hs, Ls: std_logic_vector(7 downto 0);
+	
+	-- флаги
+	-- signal F,  C,  E,  L:	std_logic_vector(7 downto 0);	
+	-- signal Fs, Cs, Es, Ls:	std_logic_vector(7 downto 0);
+	
+	-- внутренние сигналы 
+
+begin
+	Mem1: Memory port map 	(
+									ADDR 		=> ADDR,
+									DATA		=> DATA,
+									WR 		=> WR,
+									CLK 		=> CLK
+									);
+
+	-- основной цикл работы
+	main: process (CLK, RESET)
+		variable OpCode: std_logic_vector(7 downto 0) := "00000000";	-- код исполняемой команды
+		variable CommandRunned: bit := '0';										-- флаг выполнения команды
+		
+		variable add_to_PC: integer := 1;										-- байт в команде
+		variable MCycle: integer := 0;											-- номер текущего машинного цикла в команде
+		
+		variable SSS, DDD: std_logic_vector(2 downto 0) := "000";		-- регистр источник, приёмник
+		
+		
+		-- функция получения значения регистра по его идентификатору 
+		impure function get_reg_val(RegIn: std_logic_vector) return std_logic_vector is 
+		begin
+			case RegIn is 
+				when "111" => 
+					return A;
+				when "000" => 
+					return B;
+				when "001" => 
+					return C;
+				when "010" => 
+					return D;
+				when "011" => 
+					return E;
+				when "100" => 
+					return H;
+				when "101" => 
+					return L;
+				when others =>
+					return "00000000";
+			end case;
+			
+			return "00000000";
+		end function;
+		
+		-- процедура копирования значения одного регистра в другой
+		procedure copy_reg(variable SrcIndex, DstIndex: std_logic_vector(2 downto 0)) is 
+		begin
+			case DstIndex is 
+				when "111" => 
+					A <= get_reg_val(SrcIndex);
+				when "000" => 
+					B <= get_reg_val(SrcIndex);
+				when "001" => 
+					C <= get_reg_val(SrcIndex);
+				when "010" => 
+					D <= get_reg_val(SrcIndex);
+				when "011" => 
+					E <= get_reg_val(SrcIndex);
+				when "100" => 
+					H <= get_reg_val(SrcIndex);
+				when "101" => 
+					L <= get_reg_val(SrcIndex);
+				when others =>
+					null;
+			end case;
+		end procedure;
+		
+		-- процедура занесения 8 битного операдна в регистр по его индексу
+		procedure set_reg_data(variable RegIndex: std_logic_vector(2 downto 0); signal ValToReg: std_logic_vector(7 downto 0)) is 
+		begin
+			case RegIndex is 
+				when "111" => 
+					A <= ValToReg;
+				when "000" => 
+					B <= ValToReg;
+				when "001" => 
+					C <= ValToReg;
+				when "010" => 
+					D <= ValToReg;
+				when "011" => 
+					E <= ValToReg;
+				when "100" => 
+					H <= ValToReg;
+				when "101" => 
+					L <= ValToReg;
+				when others =>
+					null;
+			end case;
+		end procedure;
+	begin
+		
+			if (RESET = '0') then 
+				PC 	<= (others => '0');
+				ADDR 	<= (others => '0');
+				A 		<= (others => '0');
+				B 		<= (others => '0');
+				C 		<= (others => '0');
+				D 		<= (others => '0');
+				E 		<= (others => '0');
+				H 		<= (others => '0');
+				L 		<= (others => '0');
+			else if (CLK'event AND CLK = '1') then
+								
+				-- сброс значений при обработке новой команды
+				if (CommandRunned = '0') then 
+					CommandRunned := '1';
+					OpCode := Data;
+					MCycle := 0;
+				end if; 
+				
+				
+ 				case OpCode is 
+					-- LD r1, r2		01 r1 r2
+					when 	"01000000"|"01000001"|"01000010"|"01000011"|"01000101"|"01000111"|
+							"01001000"|"01001001"|"01001010"|"01001011"|"01001101"|"01001111"|
+							"01010000"|"01010001"|"01010010"|"01010011"|"01010101"|"01010111"|
+							"01011000"|"01011001"|"01011010"|"01011011"|"01011101"|"01011111"|
+							"01101000"|"01101001"|"01101010"|"01101011"|"01101101"|"01101111"|
+							"01111000"|"01111001"|"01111010"|"01111011"|"01111101"|"01111111"	=>
+						case MCycle is 
+							when 0 =>
+								DDD := OpCode(5 downto 3);
+								SSS := OpCode(2 downto 0);
+								copy_reg(DDD, SSS);
+								PC <= PC + 1;
+								ADDR <= PC + 1;
+								CommandRunned := '0';
+							when others => 
+								null;
+						end case;
+				
+					-- LD r, n			00 r 110
+					--						-- n ---
+					when "00111110"|"00000110"|"00001110"|"00010110"|"00011110"|"00100110"|"00101110" =>
+						case MCycle is 
+							when 0 =>
+								DDD := OpCode(5 downto 3);
+								add_to_PC := 2;
+								ADDR <= PC + 1;
+							when 1 =>
+								set_reg_data(DDD, DATA);
+								PC <= PC + add_to_PC;
+								ADDR <= PC + add_to_PC;
+								CommandRunned := '0';
+							when others =>
+								null;
+						end case;
+						
+						MCycle := MCycle + 1;
+					when others =>
+						null;
+				end case;
+				
+				
+ 			end if;
+		end if;
+		
+	end process main;
+
+end Z80;

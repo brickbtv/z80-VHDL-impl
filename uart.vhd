@@ -1,0 +1,152 @@
+   ----------------------------------------------------------------------
+-- UART
+-- Ver. 1.0    - 18.06.2004
+--              Initial release
+--
+--
+-----------------------------------------------------------------------
+
+library ieee;
+    use ieee.Std_Logic_1164.all;    
+    USE IEEE.numeric_std.ALL;  
+
+
+
+entity UART is  
+     generic (UART_Speed : integer := 9600 ;       -- UART Speed (;default =9600)                            
+              System_CLK : integer := 50000000            -- System CLK in Hz (default=50000000)
+                  );
+     
+     port (     
+            CLK                :    in        Std_Logic;                        -- system clk
+            RST_N               :    in        Std_Logic;                           -- system reset#
+            DATA_IN            :    in        Std_Logic_Vector(7 downto 0);    -- Data to transmit
+            DATA_OUT            :    out    Std_Logic_Vector(7 downto 0);    -- Recieved data    
+            RX_VALID           :     out    Std_Logic;                        -- RX buffer data ready
+            TX_VALID            :    in        Std_Logic;                        -- Data for    TX avaible                 
+            RXD                :     in        Std_Logic;                        -- RX pin
+            TXD                :     out     Std_Logic ;                       -- TX pin
+            TX_BUSY            :     out     Std_Logic ;                       -- TX pin
+            RX_BUSY				:     out     Std_Logic;
+				
+				NEW_DATA_ON_THIS_CLK : out std_logic;
+				TRNSMITTED_ON_THIS_CLK: out std_logic
+        );
+end UART;
+-----------------------------------------------------------------------
+-- Architecture for UARTv1
+-----------------------------------------------------------------------
+architecture rtl of UART is    
+
+signal TxBuf: Std_Logic_Vector(7 downto 0); -- transmit buffer
+signal RxBuf: Std_Logic_Vector(7 downto 0); -- recieve buffer
+signal prevRXD: Std_Logic;                    -- RXD buffer register 
+signal RxReady: Std_Logic;       
+signal TXRead: Std_Logic;      
+signal TxBitCnt : integer range 0 to 9;
+signal TxReady : Std_Logic;    
+signal CntRX : integer range 0 to System_CLK/(UART_Speed); --
+signal CntTX : integer range 0 to System_CLK/(UART_Speed);  --
+signal RxBitCnt: integer range 0 to 10;
+
+    
+begin  
+    UART_Tx: process(CLK, RST_N)  
+   
+    begin
+         if RST_N='0' then
+            TXD<='1';
+            TxBitCnt<=0;
+            TxBuf<=(others=>'0');               
+				CntTX<= 0;	
+				TxReady <= '1';			
+         elsif (rising_edge(CLK)) then 
+				if (TxReady = '1') then 
+					TRNSMITTED_ON_THIS_CLK <= '0';
+				end if;
+				
+				if (TX_VALID = '1' and TxReady = '1') then                    
+					TxBuf(7 downto 0)<= DATA_IN(7 downto 0);   
+					TxReady <= '0';
+					TxBitCnt<=0;
+					CntTX<=0;					
+				end if;    
+				
+				if (TxReady = '0') then				
+					if CntTX=(System_CLK/(UART_Speed)) then
+						CntTX<=0;
+						case TxBitCnt is
+							when 0 =>
+								TXD      <='0';   			  -- start bit
+								TxBitCnt <=TxBitCnt+1;                         
+							when 1|2|3|4|5|6|7|8 =>
+								TXD      <= TxBuf(0);        
+								TxBuf    <= '0' & TxBuf(7 downto 1); 
+								TxBitCnt <= TxBitCnt+1;
+							when 9 =>
+								TXD      <= '1';    -- stop bit
+								TxBuf    <= (others=>'0');
+								TRNSMITTED_ON_THIS_CLK <= '1';
+								TxBitCnt <= 0; 
+								TxReady  <= '1';								
+						end case;
+					else
+						CntTX<=CntTX+1;
+					end if;
+				end if;
+        end if;
+    end process UART_Tx;   
+    TX_BUSY<= not (TxReady);
+    
+    
+    UART_Rx: process(CLK, RST_N)
+    begin
+           if RST_N='0' then
+				RxBitCnt<=0;
+				RxBuf<=(others=>'0');
+				RxReady<='1';  
+				prevRXD<='1';     
+				CntRX <= 0;			
+           elsif (rising_edge(CLK)) then  
+					if (RxReady = '1') then  
+						NEW_DATA_ON_THIS_CLK <= '0';
+						 prevRXD<= RXD;   					  
+						 if (RXD='0' and prevRXD='1') then  		-- Start bit,                             
+                            RxBitCnt<=0;                        -- RX Bit counter
+							RxReady <= '0';						-- Start receiving	
+							RxBuf<=(others=>'0');				--
+							CntRX <= 0;
+                         end if;
+					 else   						
+						if CntRX=(System_CLK/(UART_Speed*2)) then	
+							case RxBitCnt is
+								when 0 =>                                      
+									if (RXD='1') then -- start bit failed
+										 RxReady<='1';                                              
+									end if;                                           
+								when 1|2|3|4|5|6|7|8 =>                                       
+									RxBuf<= RXD & RxBuf(7 downto 1);    
+									RxReady<='0';                                        									
+								when 9 => 
+									RxReady<='1';    
+									NEW_DATA_ON_THIS_CLK	<= '1';
+								when others => RxReady<='0';								
+							end case; 
+							CntRX<=CntRX+1; 							
+							RxBitCnt <= RxBitCnt+1;
+						elsif (CntRX=(System_CLK/(UART_Speed))) then 
+							CntRX <= 0;							
+						else
+							CntRX<=CntRX+1; 							
+						end if;							
+                   end if;
+        end if;    
+    end process UART_Rx;    
+    
+    
+	DATA_OUT(7 downto 0)<= RxBuf(7 downto 0) when RxReady='1' else (others=>'0');
+    RX_VALID<=RxReady;   
+    RX_BUSY<=not (RxReady);   
+    
+end rtl; 
+

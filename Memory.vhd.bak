@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Memory is 
+	port (
+			ADDR: 		in 	std_logic_vector(15 downto 0);	-- адрес
+			DATA_IN: 	in 	std_logic_vector(7 downto 0);		-- данные на выход
+			DATA_OUT: 	out 	std_logic_vector(7 downto 0);		-- данные на запись
+			CLK:		 	in 	std_logic;								-- синхросигнал
+			WR:			in 	std_logic								-- данные поданы на запись
+			);
+end Memory;
+
+architecture Memory of Memory is 
+	subtype word_t is std_logic_vector(7 downto 0);
+	type memory_t is array(63 downto 0) of word_t;				-- TODO: расширить до 65535 ячеек
+	
+	signal ram : memory_t;
+	signal addr_reg : std_logic_vector(15 downto 0);
+	
+begin 
+	process(CLK)
+	begin
+		if(rising_edge(CLK)) then
+			if(WR = '1') then		-- запись разрешена
+				ram(to_integer(unsigned(ADDR))) <= DATA_IN;
+			end if;
+			
+			addr_reg <= ADDR;		-- сохранить значение адреса
+		end if;
+	end process;
+	
+	DATA_OUT <= ram(to_integer(unsigned(addr_reg))); 			-- выдавать данные по сохранённому адресу
+end Memory;

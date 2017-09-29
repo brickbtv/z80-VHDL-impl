@@ -1,0 +1,127 @@
+Flow report for Z80_cpu
+Fri May 24 13:41:11 2013
+Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++------------------------------------+------------------------------------------+
+; Flow Status                        ; Successful - Fri May 24 13:41:11 2013    ;
+; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name                      ; Z80_cpu                                  ;
+; Top-level Entity Name              ; Z80_top                                  ;
+; Family                             ; Cyclone II                               ;
+; Device                             ; EP2C20F484C7                             ;
+; Timing Models                      ; Final                                    ;
+; Total logic elements               ; 9,279                                    ;
+;     Total combinational functions  ; 8,154                                    ;
+;     Dedicated logic registers      ; 1,681                                    ;
+; Total registers                    ; 1681                                     ;
+; Total pins                         ; 20                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 05/24/2013 13:38:13 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Z80_cpu             ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                               ;
++--------------------------------------+-----------------------------------------+---------------+-------------+-----------------+
+; Assignment Name                      ; Value                                   ; Default Value ; Entity Name ; Section Id      ;
++--------------------------------------+-----------------------------------------+---------------+-------------+-----------------+
+; COMPILER_SIGNATURE_ID                ; 826177298441.136938829302204            ; --            ; --          ; --              ;
+; EDA_DESIGN_INSTANCE_NAME             ; Z80_cpu_vhd_tst                         ; --            ; --          ; Z80_cpu_vhd_tst ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; Z80_cpu_vhd_tst                         ; --            ; --          ; eda_simulation  ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                    ; --            ; --          ; eda_simulation  ;
+; EDA_RUN_TOOL_AUTOMATICALLY           ; Off                                     ; --            ; --          ; eda_simulation  ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                  ; <None>        ; --          ; --              ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; NOT_USED                                ; --            ; --          ; eda_simulation  ;
+; EDA_TEST_BENCH_FILE                  ; simulation/modelsim/Z80_cpu_vhd_tst.vht ; --            ; --          ; Z80_cpu_vhd_tst ;
+; EDA_TEST_BENCH_MODULE_NAME           ; Z80_cpu_vhd_tst                         ; --            ; --          ; Z80_cpu_vhd_tst ;
+; EDA_TEST_BENCH_NAME                  ; Z80_cpu_vhd_tst                         ; --            ; --          ; eda_simulation  ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 1 ms                                    ; --            ; --          ; Z80_cpu_vhd_tst ;
+; IP_TOOL_NAME                         ; ALTPLL                                  ; --            ; --          ; --              ;
+; IP_TOOL_VERSION                      ; 12.1                                    ; --            ; --          ; --              ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                      ; --            ; --          ; --              ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                       ; --            ; --          ; --              ;
+; MISC_FILE                            ; altpll0.bsf                             ; --            ; --          ; --              ;
+; MISC_FILE                            ; altpll0.cmp                             ; --            ; --          ; --              ;
+; MISC_FILE                            ; altpll0.ppf                             ; --            ; --          ; --              ;
+; PARTITION_COLOR                      ; 16764057                                ; --            ; Z80_top     ; Top             ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                   ; --            ; Z80_top     ; Top             ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                  ; --            ; Z80_top     ; Top             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                            ; --            ; --          ; --              ;
+; TOP_LEVEL_ENTITY                     ; Z80_top                                 ; Z80_cpu       ; --          ; --              ;
++--------------------------------------+-----------------------------------------+---------------+-------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:02:57     ; 1.0                     ; 598 MB              ; 00:02:56                           ;
+; Total                ; 00:02:57     ; --                      ; --                  ; 00:02:56                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; User-PC          ; Windows 7 ; 6.2        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Z80_cpu -c Z80_cpu
+
+
+

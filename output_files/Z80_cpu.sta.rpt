@@ -1,0 +1,1155 @@
+TimeQuest Timing Analyzer report for Z80_cpu
+Sat May 11 19:34:35 2013
+Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'CLK'
+ 12. Slow Model Hold: 'CLK'
+ 13. Slow Model Minimum Pulse Width: 'CLK'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'CLK'
+ 24. Fast Model Hold: 'CLK'
+ 25. Fast Model Minimum Pulse Width: 'CLK'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                     ;
++--------------------+--------------------------------------------------+
+; Quartus II Version ; Version 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name      ; Z80_cpu                                          ;
+; Device Family      ; Cyclone II                                       ;
+; Device Name        ; EP2C20F484C7                                     ;
+; Timing Models      ; Final                                            ;
+; Delay Model        ; Combined                                         ;
+; Rise/Fall Delays   ; Unavailable                                      ;
++--------------------+--------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; CLK        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Slow Model Fmax Summary                         ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 37.59 MHz ; 37.59 MHz       ; CLK        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Slow Model Setup Summary        ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; CLK   ; -25.601 ; -14408.362    ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; CLK   ; 0.445 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; CLK   ; -1.631 ; -2055.813             ;
++-------+--------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLK'                                                                                                                   ;
++---------+--------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+--------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; -25.601 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.652     ;
+; -25.588 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.639     ;
+; -25.487 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 26.545     ;
+; -25.474 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.525     ;
+; -25.461 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.512     ;
+; -25.442 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.493     ;
+; -25.429 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.480     ;
+; -25.410 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.461     ;
+; -25.360 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 26.418     ;
+; -25.328 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 26.386     ;
+; -25.283 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.334     ;
+; -25.254 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.305     ;
+; -25.251 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.302     ;
+; -25.241 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.292     ;
+; -25.194 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 26.241     ;
+; -25.181 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 26.228     ;
+; -25.159 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 26.197     ;
+; -25.146 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 26.184     ;
+; -25.140 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 26.198     ;
+; -25.080 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[4]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.007      ; 26.125     ;
+; -25.080 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.016      ; 26.134     ;
+; -25.067 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[4]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.007      ; 26.112     ;
+; -25.063 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.013      ; 26.114     ;
+; -25.045 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.007      ; 26.090     ;
+; -25.044 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[6]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.004      ; 26.086     ;
+; -25.035 ; Memory:Mem1|ram~697      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 26.085     ;
+; -25.031 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[6]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.004      ; 26.073     ;
+; -25.018 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 26.066     ;
+; -25.005 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 26.053     ;
+; -25.003 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 26.050     ;
+; -24.984 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 26.033     ;
+; -24.976 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[3]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 26.014     ;
+; -24.971 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 26.020     ;
+; -24.968 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 26.006     ;
+; -24.966 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|ADDR[4]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.014      ; 26.018     ;
+; -24.963 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[3]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 26.001     ;
+; -24.930 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|ADDR[6]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.011      ; 25.979     ;
+; -24.929 ; Memory:Mem1|ram~699      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.979     ;
+; -24.918 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.968     ;
+; -24.908 ; Memory:Mem1|ram~697      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.958     ;
+; -24.905 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.955     ;
+; -24.904 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.017      ; 25.959     ;
+; -24.889 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|ADDR[4]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.007      ; 25.934     ;
+; -24.876 ; Memory:Mem1|ram~697      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.926     ;
+; -24.870 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.018      ; 25.926     ;
+; -24.862 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|ADDR[3]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.007      ; 25.907     ;
+; -24.853 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|ADDR[6]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.004      ; 25.895     ;
+; -24.845 ; Memory:Mem1|ram~703      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.895     ;
+; -24.827 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 25.875     ;
+; -24.808 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[5]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.009      ; 25.855     ;
+; -24.808 ; Memory:Mem1|ram~581      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.854     ;
+; -24.804 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.019      ; 25.861     ;
+; -24.802 ; Memory:Mem1|ram~699      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.852     ;
+; -24.795 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[5]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.009      ; 25.842     ;
+; -24.793 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 25.842     ;
+; -24.792 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[7]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.010      ; 25.840     ;
+; -24.787 ; Memory:Mem1|ram~95       ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 25.845     ;
+; -24.785 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|ADDR[3]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 25.823     ;
+; -24.780 ; Memory:Mem1|ram~701      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.830     ;
+; -24.779 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[7]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.010      ; 25.827     ;
+; -24.770 ; Memory:Mem1|ram~699      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.820     ;
+; -24.764 ; Memory:Mem1|ram~869      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 25.813     ;
+; -24.744 ; Memory:Mem1|ram~583      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.790     ;
+; -24.727 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.777     ;
+; -24.718 ; Memory:Mem1|ram~703      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.768     ;
+; -24.706 ; Memory:Mem1|ram~543      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.752     ;
+; -24.700 ; Memory:Mem1|ram~807      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 25.744     ;
+; -24.694 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|ADDR[5]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.016      ; 25.748     ;
+; -24.692 ; Memory:Mem1|ram~577      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.738     ;
+; -24.690 ; Memory:Mem1|ram~700      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.740     ;
+; -24.688 ; Memory:Mem1|ram~697      ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.738     ;
+; -24.686 ; Memory:Mem1|ram~703      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.736     ;
+; -24.681 ; Memory:Mem1|ram~581      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.727     ;
+; -24.679 ; Memory:Mem1|ram~449      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.725     ;
+; -24.678 ; Z80_cpu:Z80|ADDR[0]~reg0 ; Z80_cpu:Z80|ADDR[7]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.017      ; 25.733     ;
+; -24.670 ; Memory:Mem1|ram~452      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.716     ;
+; -24.660 ; Memory:Mem1|ram~95       ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 25.718     ;
+; -24.653 ; Z80_cpu:Z80|ADDR[3]~reg0 ; Z80_cpu:Z80|ADDR[2]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 25.691     ;
+; -24.653 ; Memory:Mem1|ram~701      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.703     ;
+; -24.649 ; Memory:Mem1|ram~581      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.695     ;
+; -24.640 ; Z80_cpu:Z80|ADDR[1]~reg0 ; Z80_cpu:Z80|ADDR[2]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 25.678     ;
+; -24.637 ; Memory:Mem1|ram~869      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 25.686     ;
+; -24.634 ; Memory:Mem1|ram~805      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 25.678     ;
+; -24.628 ; Memory:Mem1|ram~95       ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.020      ; 25.686     ;
+; -24.628 ; Memory:Mem1|ram~697      ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.674     ;
+; -24.621 ; Memory:Mem1|ram~701      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.671     ;
+; -24.618 ; Memory:Mem1|ram~541      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.664     ;
+; -24.617 ; Memory:Mem1|ram~583      ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.663     ;
+; -24.617 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|ADDR[5]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.009      ; 25.664     ;
+; -24.617 ; Memory:Mem1|ram~696      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.667     ;
+; -24.612 ; Memory:Mem1|ram~188      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.019      ; 25.669     ;
+; -24.605 ; Memory:Mem1|ram~869      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 25.654     ;
+; -24.601 ; Memory:Mem1|ram~434      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.651     ;
+; -24.601 ; Z80_cpu:Z80|ADDR[2]~reg0 ; Z80_cpu:Z80|ADDR[7]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.010      ; 25.649     ;
+; -24.598 ; Memory:Mem1|ram~698      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.012      ; 25.648     ;
+; -24.593 ; Memory:Mem1|ram~697      ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; -0.001     ; 25.630     ;
+; -24.590 ; Memory:Mem1|ram~135      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.017      ; 25.645     ;
+; -24.589 ; Memory:Mem1|ram~865      ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 25.638     ;
+; -24.585 ; Memory:Mem1|ram~583      ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 25.631     ;
+; -24.583 ; Memory:Mem1|ram~26       ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.027      ; 25.648     ;
++---------+--------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLK'                                                                                                                                                      ;
++-------+-----------------------------------------------+-----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                     ; To Node                                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------+-----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[0]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[0]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[1]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[1]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[2]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[2]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[3]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[3]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|NEW_DATA_ON_THIS_CLK   ; Z80_cpu:Z80|UART:Uart1|NEW_DATA_ON_THIS_CLK   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:OpCode[3]                   ; Z80_cpu:Z80|\main:OpCode[3]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:OpCode[2]                   ; Z80_cpu:Z80|\main:OpCode[2]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:OpCode[5]                   ; Z80_cpu:Z80|\main:OpCode[5]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:OpCode[1]                   ; Z80_cpu:Z80|\main:OpCode[1]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:OpCode[7]                   ; Z80_cpu:Z80|\main:OpCode[7]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:IXorIY[0]                   ; Z80_cpu:Z80|\main:IXorIY[0]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:OpCode[4]                   ; Z80_cpu:Z80|\main:OpCode[4]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|CODE[3]                           ; Z80_cpu:Z80|CODE[3]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|CODE[1]                           ; Z80_cpu:Z80|CODE[1]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|CODE[0]                           ; Z80_cpu:Z80|CODE[0]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|CODE[2]                           ; Z80_cpu:Z80|CODE[2]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|RAZR                              ; Z80_cpu:Z80|RAZR                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[0]                              ; Z80_cpu:Z80|C[0]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[1]                         ; Z80_cpu:Z80|OP16_B[1]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[1]                         ; Z80_cpu:Z80|OP16_A[1]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[1]                              ; Z80_cpu:Z80|C[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[6]                          ; Z80_cpu:Z80|OP8_B[6]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[7]                              ; Z80_cpu:Z80|R[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|E[7]                              ; Z80_cpu:Z80|E[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[7]                         ; Z80_cpu:Z80|OP16_B[7]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[7]                         ; Z80_cpu:Z80|OP16_A[7]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[7]                              ; Z80_cpu:Z80|C[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|SP[7]                             ; Z80_cpu:Z80|SP[7]                             ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|SP[12]                            ; Z80_cpu:Z80|SP[12]                            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|SP[13]                            ; Z80_cpu:Z80|SP[13]                            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[6]                              ; Z80_cpu:Z80|R[6]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[6]                         ; Z80_cpu:Z80|OP16_B[6]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[6]                         ; Z80_cpu:Z80|OP16_A[6]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[6]                              ; Z80_cpu:Z80|C[6]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[5]                              ; Z80_cpu:Z80|R[5]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[10]                        ; Z80_cpu:Z80|OP16_A[10]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[10]                        ; Z80_cpu:Z80|OP16_B[10]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[13]                        ; Z80_cpu:Z80|OP16_A[13]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[13]                        ; Z80_cpu:Z80|OP16_B[13]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[14]                        ; Z80_cpu:Z80|OP16_A[14]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[14]                        ; Z80_cpu:Z80|OP16_B[14]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|H[6]                              ; Z80_cpu:Z80|H[6]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[6]                          ; Z80_cpu:Z80|OP8_A[6]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[0]                          ; Z80_cpu:Z80|OP8_B[0]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[1]                          ; Z80_cpu:Z80|OP8_B[1]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[2]                          ; Z80_cpu:Z80|OP8_B[2]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[3]                          ; Z80_cpu:Z80|OP8_A[3]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[4]                          ; Z80_cpu:Z80|OP8_B[4]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[12]                        ; Z80_cpu:Z80|OP16_B[12]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[12]                        ; Z80_cpu:Z80|OP16_A[12]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[5]                          ; Z80_cpu:Z80|OP8_B[5]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[5]                          ; Z80_cpu:Z80|OP8_A[5]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[5]                              ; Z80_cpu:Z80|C[5]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[5]                         ; Z80_cpu:Z80|OP16_B[5]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[5]                         ; Z80_cpu:Z80|OP16_A[5]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[11]                        ; Z80_cpu:Z80|OP16_A[11]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[11]                        ; Z80_cpu:Z80|OP16_B[11]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|H[3]                              ; Z80_cpu:Z80|H[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[4]                              ; Z80_cpu:Z80|R[4]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[4]                         ; Z80_cpu:Z80|OP16_B[4]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[4]                         ; Z80_cpu:Z80|OP16_A[4]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[4]                              ; Z80_cpu:Z80|C[4]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[3]                          ; Z80_cpu:Z80|OP8_B[3]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|E[3]                              ; Z80_cpu:Z80|E[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|D[1]                              ; Z80_cpu:Z80|D[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[9]                         ; Z80_cpu:Z80|OP16_A[9]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[9]                         ; Z80_cpu:Z80|OP16_B[9]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|B[4]                              ; Z80_cpu:Z80|B[4]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[4]                          ; Z80_cpu:Z80|OP8_A[4]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[3]                              ; Z80_cpu:Z80|R[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|C[3]                              ; Z80_cpu:Z80|C[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[3]                         ; Z80_cpu:Z80|OP16_A[3]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[3]                         ; Z80_cpu:Z80|OP16_B[3]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[1]                          ; Z80_cpu:Z80|OP8_A[1]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|SP[8]                             ; Z80_cpu:Z80|SP[8]                             ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[8]                         ; Z80_cpu:Z80|OP16_A[8]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[8]                         ; Z80_cpu:Z80|OP16_B[8]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|B[1]                              ; Z80_cpu:Z80|B[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[1]                              ; Z80_cpu:Z80|R[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|SP[15]                            ; Z80_cpu:Z80|SP[15]                            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[15]                        ; Z80_cpu:Z80|OP16_A[15]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[15]                        ; Z80_cpu:Z80|OP16_B[15]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[7]                          ; Z80_cpu:Z80|OP8_A[7]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_B[7]                          ; Z80_cpu:Z80|OP8_B[7]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|A[7]                              ; Z80_cpu:Z80|A[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[0]                              ; Z80_cpu:Z80|R[0]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|R[2]                              ; Z80_cpu:Z80|R[2]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[2]                          ; Z80_cpu:Z80|OP8_A[2]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[2]                         ; Z80_cpu:Z80|OP16_A[2]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[2]                         ; Z80_cpu:Z80|OP16_B[2]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP8_A[0]                          ; Z80_cpu:Z80|OP8_A[0]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_A[0]                         ; Z80_cpu:Z80|OP16_A[0]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|OP16_B[0]                         ; Z80_cpu:Z80|OP16_B[0]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|\main:SecCycle[31]                ; Z80_cpu:Z80|\main:SecCycle[31]                ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[0]            ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[0]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[2]            ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[2]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[1]            ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[1]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|TxReady                ; Z80_cpu:Z80|UART:Uart1|TxReady                ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|UART:Uart1|TRNSMITTED_ON_THIS_CLK ; Z80_cpu:Z80|UART:Uart1|TRNSMITTED_ON_THIS_CLK ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; Z80_cpu:Z80|without_stopping                  ; Z80_cpu:Z80|without_stopping                  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.731      ;
++-------+-----------------------------------------------+-----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLK'                                                                 ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; CLK   ; Rise       ; CLK                  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~100  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~100  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1000 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1000 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1001 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1001 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1002 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1002 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1003 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1003 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1004 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1004 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1005 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1005 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1006 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1006 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1007 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1007 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1008 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1008 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1009 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1009 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~101  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~101  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1010 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1010 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1011 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1011 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1012 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1012 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1013 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1013 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1014 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1014 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1015 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1015 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1016 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1016 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1017 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1017 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1018 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1018 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1019 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1019 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~102  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~102  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1020 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1020 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1021 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1021 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1022 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1022 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1023 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1023 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1024 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1024 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1025 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1025 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1026 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1026 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1027 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1027 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1028 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1028 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1029 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1029 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~103  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~103  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1030 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1030 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1031 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1031 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1032 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1032 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1033 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1033 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1034 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1034 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1035 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1035 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1036 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1036 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1037 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1037 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1038 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1038 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1039 ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1039 ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~104  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~104  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~105  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~105  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~106  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~106  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~107  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~107  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~108  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~108  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~109  ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; RESET     ; CLK        ; 13.069 ; 13.069 ; Rise       ; CLK             ;
+; RXD       ; CLK        ; 7.695  ; 7.695  ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; RESET     ; CLK        ; -5.516 ; -5.516 ; Rise       ; CLK             ;
+; RXD       ; CLK        ; -4.689 ; -4.689 ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED[*]    ; CLK        ; 9.341 ; 9.341 ; Rise       ; CLK             ;
+;  LED[0]   ; CLK        ; 8.203 ; 8.203 ; Rise       ; CLK             ;
+;  LED[1]   ; CLK        ; 8.493 ; 8.493 ; Rise       ; CLK             ;
+;  LED[2]   ; CLK        ; 9.341 ; 9.341 ; Rise       ; CLK             ;
+;  LED[3]   ; CLK        ; 8.891 ; 8.891 ; Rise       ; CLK             ;
+;  LED[4]   ; CLK        ; 8.343 ; 8.343 ; Rise       ; CLK             ;
+;  LED[5]   ; CLK        ; 9.308 ; 9.308 ; Rise       ; CLK             ;
+;  LED[6]   ; CLK        ; 8.595 ; 8.595 ; Rise       ; CLK             ;
+;  LED[7]   ; CLK        ; 8.148 ; 8.148 ; Rise       ; CLK             ;
+;  LED[10]  ; CLK        ; 7.213 ; 7.213 ; Rise       ; CLK             ;
+;  LED[11]  ; CLK        ; 8.268 ; 8.268 ; Rise       ; CLK             ;
+;  LED[12]  ; CLK        ; 7.738 ; 7.738 ; Rise       ; CLK             ;
+;  LED[13]  ; CLK        ; 7.654 ; 7.654 ; Rise       ; CLK             ;
+;  LED[15]  ; CLK        ; 8.827 ; 8.827 ; Rise       ; CLK             ;
+; TXD       ; CLK        ; 8.870 ; 8.870 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED[*]    ; CLK        ; 7.213 ; 7.213 ; Rise       ; CLK             ;
+;  LED[0]   ; CLK        ; 8.203 ; 8.203 ; Rise       ; CLK             ;
+;  LED[1]   ; CLK        ; 8.493 ; 8.493 ; Rise       ; CLK             ;
+;  LED[2]   ; CLK        ; 9.341 ; 9.341 ; Rise       ; CLK             ;
+;  LED[3]   ; CLK        ; 8.891 ; 8.891 ; Rise       ; CLK             ;
+;  LED[4]   ; CLK        ; 8.343 ; 8.343 ; Rise       ; CLK             ;
+;  LED[5]   ; CLK        ; 9.308 ; 9.308 ; Rise       ; CLK             ;
+;  LED[6]   ; CLK        ; 8.595 ; 8.595 ; Rise       ; CLK             ;
+;  LED[7]   ; CLK        ; 8.148 ; 8.148 ; Rise       ; CLK             ;
+;  LED[10]  ; CLK        ; 7.213 ; 7.213 ; Rise       ; CLK             ;
+;  LED[11]  ; CLK        ; 8.268 ; 8.268 ; Rise       ; CLK             ;
+;  LED[12]  ; CLK        ; 7.738 ; 7.738 ; Rise       ; CLK             ;
+;  LED[13]  ; CLK        ; 7.654 ; 7.654 ; Rise       ; CLK             ;
+;  LED[15]  ; CLK        ; 8.827 ; 8.827 ; Rise       ; CLK             ;
+; TXD       ; CLK        ; 8.870 ; 8.870 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; CLK   ; -9.090 ; -4628.719     ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; CLK   ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; CLK   ; -1.380 ; -1682.380             ;
++-------+--------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLK'                                                                                                                         ;
++--------+---------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                       ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; -9.090 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.018      ; 10.140     ;
+; -9.089 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 10.132     ;
+; -9.066 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 10.109     ;
+; -9.052 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.018      ; 10.102     ;
+; -9.051 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 10.093     ;
+; -9.051 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 10.094     ;
+; -9.028 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 10.071     ;
+; -9.021 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.018      ; 10.071     ;
+; -9.020 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 10.063     ;
+; -9.013 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 10.055     ;
+; -8.997 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 10.040     ;
+; -8.982 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 10.024     ;
+; -8.925 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.018      ; 9.975      ;
+; -8.924 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 9.967      ;
+; -8.909 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.014      ; 9.955      ;
+; -8.908 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.007      ; 9.947      ;
+; -8.901 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.011      ; 9.944      ;
+; -8.886 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 9.928      ;
+; -8.885 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.007      ; 9.924      ;
+; -8.870 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[26] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.908      ;
+; -8.832 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.016      ; 9.880      ;
+; -8.831 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.872      ;
+; -8.828 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.015      ; 9.875      ;
+; -8.827 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 9.867      ;
+; -8.813 ; Memory:Mem1|ram~699             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.854      ;
+; -8.808 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.849      ;
+; -8.805 ; Memory:Mem1|ram~701             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.846      ;
+; -8.804 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 9.844      ;
+; -8.802 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.017      ; 9.851      ;
+; -8.801 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 9.843      ;
+; -8.797 ; Memory:Mem1|ram~697             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.838      ;
+; -8.793 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[28] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 9.833      ;
+; -8.789 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[24] ; CLK          ; CLK         ; 1.000        ; 0.007      ; 9.828      ;
+; -8.778 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 9.820      ;
+; -8.775 ; Memory:Mem1|ram~699             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.816      ;
+; -8.770 ; Memory:Mem1|ram~581             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.808      ;
+; -8.767 ; Memory:Mem1|ram~701             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.808      ;
+; -8.766 ; Memory:Mem1|ram~869             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.807      ;
+; -8.763 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|\main:SecCycle[27] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.804      ;
+; -8.759 ; Memory:Mem1|ram~697             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.800      ;
+; -8.746 ; Memory:Mem1|ram~807             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.004      ; 9.782      ;
+; -8.746 ; Memory:Mem1|ram~703             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.787      ;
+; -8.744 ; Memory:Mem1|ram~699             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.785      ;
+; -8.741 ; Memory:Mem1|ram~543             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.779      ;
+; -8.736 ; Memory:Mem1|ram~701             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.777      ;
+; -8.734 ; Memory:Mem1|ram~583             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.772      ;
+; -8.732 ; Memory:Mem1|ram~581             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.770      ;
+; -8.728 ; Memory:Mem1|ram~869             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.769      ;
+; -8.728 ; Memory:Mem1|ram~697             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.769      ;
+; -8.719 ; Memory:Mem1|ram~541             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.757      ;
+; -8.719 ; Memory:Mem1|ram~95              ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.017      ; 9.768      ;
+; -8.710 ; Memory:Mem1|ram~700             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.751      ;
+; -8.708 ; Memory:Mem1|ram~807             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.004      ; 9.744      ;
+; -8.708 ; Memory:Mem1|ram~703             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.749      ;
+; -8.707 ; Memory:Mem1|ram~696             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.748      ;
+; -8.703 ; Memory:Mem1|ram~543             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.741      ;
+; -8.701 ; Memory:Mem1|ram~805             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.004      ; 9.737      ;
+; -8.701 ; Memory:Mem1|ram~581             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.739      ;
+; -8.697 ; Memory:Mem1|ram~869             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.738      ;
+; -8.696 ; Memory:Mem1|ram~583             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.734      ;
+; -8.696 ; Memory:Mem1|ram~452             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.734      ;
+; -8.682 ; Memory:Mem1|ram~577             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.720      ;
+; -8.681 ; Memory:Mem1|ram~541             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.719      ;
+; -8.681 ; Memory:Mem1|ram~95              ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.017      ; 9.730      ;
+; -8.679 ; Z80_cpu:Z80|ADDR[0]~reg0        ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.007      ; 9.718      ;
+; -8.678 ; Memory:Mem1|ram~698             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.719      ;
+; -8.678 ; Z80_cpu:Z80|ADDR[1]~reg0        ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 9.710      ;
+; -8.677 ; Memory:Mem1|ram~807             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.004      ; 9.713      ;
+; -8.677 ; Memory:Mem1|ram~703             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.718      ;
+; -8.673 ; Memory:Mem1|ram~135             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.015      ; 9.720      ;
+; -8.672 ; Memory:Mem1|ram~543             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.710      ;
+; -8.672 ; Memory:Mem1|ram~700             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.713      ;
+; -8.669 ; Memory:Mem1|ram~696             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.710      ;
+; -8.665 ; Memory:Mem1|ram~434             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 9.707      ;
+; -8.665 ; Memory:Mem1|ram~583             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.703      ;
+; -8.663 ; Memory:Mem1|ram~805             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.004      ; 9.699      ;
+; -8.663 ; Memory:Mem1|ram~865             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.704      ;
+; -8.661 ; Memory:Mem1|ram~188             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.016      ; 9.709      ;
+; -8.661 ; Memory:Mem1|ram~439             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.010      ; 9.703      ;
+; -8.658 ; Memory:Mem1|ram~226             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.015      ; 9.705      ;
+; -8.658 ; Memory:Mem1|ram~452             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.696      ;
+; -8.656 ; Memory:Mem1|ram~26              ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.022      ; 9.710      ;
+; -8.655 ; Z80_cpu:Z80|\main:CommandRunned ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.002      ; 9.689      ;
+; -8.655 ; Z80_cpu:Z80|ADDR[3]~reg0        ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; 0.000      ; 9.687      ;
+; -8.653 ; Memory:Mem1|ram~733             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.691      ;
+; -8.652 ; Memory:Mem1|ram~31              ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.022      ; 9.706      ;
+; -8.650 ; Memory:Mem1|ram~541             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.688      ;
+; -8.650 ; Memory:Mem1|ram~95              ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.017      ; 9.699      ;
+; -8.648 ; Memory:Mem1|ram~641             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.008      ; 9.688      ;
+; -8.648 ; Memory:Mem1|ram~699             ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.689      ;
+; -8.646 ; Memory:Mem1|ram~450             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.684      ;
+; -8.646 ; Memory:Mem1|ram~449             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.684      ;
+; -8.644 ; Memory:Mem1|ram~577             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.682      ;
+; -8.642 ; Memory:Mem1|ram~202             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.030      ; 9.704      ;
+; -8.641 ; Memory:Mem1|ram~700             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.682      ;
+; -8.640 ; Memory:Mem1|ram~698             ; Z80_cpu:Z80|\main:SecCycle[30] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.681      ;
+; -8.640 ; Memory:Mem1|ram~701             ; Z80_cpu:Z80|\main:SecCycle[25] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.681      ;
+; -8.640 ; Z80_cpu:Z80|ADDR[2]~reg0        ; Z80_cpu:Z80|ADDR[1]~reg0       ; CLK          ; CLK         ; 1.000        ; -0.001     ; 9.671      ;
+; -8.639 ; Memory:Mem1|ram~537             ; Z80_cpu:Z80|\main:SecCycle[31] ; CLK          ; CLK         ; 1.000        ; 0.006      ; 9.677      ;
+; -8.638 ; Memory:Mem1|ram~696             ; Z80_cpu:Z80|\main:SecCycle[29] ; CLK          ; CLK         ; 1.000        ; 0.009      ; 9.679      ;
++--------+---------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLK'                                                                                                                                                      ;
++-------+-----------------------------------------------+-----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                     ; To Node                                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------+-----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[0]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[0]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[1]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[1]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[2]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[2]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[3]            ; Z80_cpu:Z80|UART:Uart1|RxBitCnt[3]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|NEW_DATA_ON_THIS_CLK   ; Z80_cpu:Z80|UART:Uart1|NEW_DATA_ON_THIS_CLK   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:OpCode[3]                   ; Z80_cpu:Z80|\main:OpCode[3]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:OpCode[2]                   ; Z80_cpu:Z80|\main:OpCode[2]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:OpCode[5]                   ; Z80_cpu:Z80|\main:OpCode[5]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:OpCode[1]                   ; Z80_cpu:Z80|\main:OpCode[1]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:OpCode[7]                   ; Z80_cpu:Z80|\main:OpCode[7]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:IXorIY[0]                   ; Z80_cpu:Z80|\main:IXorIY[0]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:OpCode[4]                   ; Z80_cpu:Z80|\main:OpCode[4]                   ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|CODE[3]                           ; Z80_cpu:Z80|CODE[3]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|CODE[1]                           ; Z80_cpu:Z80|CODE[1]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|CODE[0]                           ; Z80_cpu:Z80|CODE[0]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|CODE[2]                           ; Z80_cpu:Z80|CODE[2]                           ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|RAZR                              ; Z80_cpu:Z80|RAZR                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[0]                              ; Z80_cpu:Z80|C[0]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[1]                         ; Z80_cpu:Z80|OP16_B[1]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[1]                         ; Z80_cpu:Z80|OP16_A[1]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[1]                              ; Z80_cpu:Z80|C[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[6]                          ; Z80_cpu:Z80|OP8_B[6]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[7]                              ; Z80_cpu:Z80|R[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|E[7]                              ; Z80_cpu:Z80|E[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[7]                         ; Z80_cpu:Z80|OP16_B[7]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[7]                         ; Z80_cpu:Z80|OP16_A[7]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[7]                              ; Z80_cpu:Z80|C[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|SP[7]                             ; Z80_cpu:Z80|SP[7]                             ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|SP[12]                            ; Z80_cpu:Z80|SP[12]                            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|SP[13]                            ; Z80_cpu:Z80|SP[13]                            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[6]                              ; Z80_cpu:Z80|R[6]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[6]                         ; Z80_cpu:Z80|OP16_B[6]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[6]                         ; Z80_cpu:Z80|OP16_A[6]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[6]                              ; Z80_cpu:Z80|C[6]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[5]                              ; Z80_cpu:Z80|R[5]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[10]                        ; Z80_cpu:Z80|OP16_A[10]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[10]                        ; Z80_cpu:Z80|OP16_B[10]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[13]                        ; Z80_cpu:Z80|OP16_A[13]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[13]                        ; Z80_cpu:Z80|OP16_B[13]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[14]                        ; Z80_cpu:Z80|OP16_A[14]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[14]                        ; Z80_cpu:Z80|OP16_B[14]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|H[6]                              ; Z80_cpu:Z80|H[6]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[6]                          ; Z80_cpu:Z80|OP8_A[6]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[0]                          ; Z80_cpu:Z80|OP8_B[0]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[1]                          ; Z80_cpu:Z80|OP8_B[1]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[2]                          ; Z80_cpu:Z80|OP8_B[2]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[3]                          ; Z80_cpu:Z80|OP8_A[3]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[4]                          ; Z80_cpu:Z80|OP8_B[4]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[12]                        ; Z80_cpu:Z80|OP16_B[12]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[12]                        ; Z80_cpu:Z80|OP16_A[12]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[5]                          ; Z80_cpu:Z80|OP8_B[5]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[5]                          ; Z80_cpu:Z80|OP8_A[5]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[5]                              ; Z80_cpu:Z80|C[5]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[5]                         ; Z80_cpu:Z80|OP16_B[5]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[5]                         ; Z80_cpu:Z80|OP16_A[5]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[11]                        ; Z80_cpu:Z80|OP16_A[11]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[11]                        ; Z80_cpu:Z80|OP16_B[11]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|H[3]                              ; Z80_cpu:Z80|H[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[4]                              ; Z80_cpu:Z80|R[4]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[4]                         ; Z80_cpu:Z80|OP16_B[4]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[4]                         ; Z80_cpu:Z80|OP16_A[4]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[4]                              ; Z80_cpu:Z80|C[4]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[3]                          ; Z80_cpu:Z80|OP8_B[3]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|E[3]                              ; Z80_cpu:Z80|E[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|D[1]                              ; Z80_cpu:Z80|D[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[9]                         ; Z80_cpu:Z80|OP16_A[9]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[9]                         ; Z80_cpu:Z80|OP16_B[9]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|B[4]                              ; Z80_cpu:Z80|B[4]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[4]                          ; Z80_cpu:Z80|OP8_A[4]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[3]                              ; Z80_cpu:Z80|R[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|C[3]                              ; Z80_cpu:Z80|C[3]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[3]                         ; Z80_cpu:Z80|OP16_A[3]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[3]                         ; Z80_cpu:Z80|OP16_B[3]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[1]                          ; Z80_cpu:Z80|OP8_A[1]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|SP[8]                             ; Z80_cpu:Z80|SP[8]                             ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[8]                         ; Z80_cpu:Z80|OP16_A[8]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[8]                         ; Z80_cpu:Z80|OP16_B[8]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|B[1]                              ; Z80_cpu:Z80|B[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[1]                              ; Z80_cpu:Z80|R[1]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|SP[15]                            ; Z80_cpu:Z80|SP[15]                            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[15]                        ; Z80_cpu:Z80|OP16_A[15]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[15]                        ; Z80_cpu:Z80|OP16_B[15]                        ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[7]                          ; Z80_cpu:Z80|OP8_A[7]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_B[7]                          ; Z80_cpu:Z80|OP8_B[7]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|A[7]                              ; Z80_cpu:Z80|A[7]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[0]                              ; Z80_cpu:Z80|R[0]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|R[2]                              ; Z80_cpu:Z80|R[2]                              ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[2]                          ; Z80_cpu:Z80|OP8_A[2]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[2]                         ; Z80_cpu:Z80|OP16_A[2]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[2]                         ; Z80_cpu:Z80|OP16_B[2]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP8_A[0]                          ; Z80_cpu:Z80|OP8_A[0]                          ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_A[0]                         ; Z80_cpu:Z80|OP16_A[0]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|OP16_B[0]                         ; Z80_cpu:Z80|OP16_B[0]                         ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|\main:SecCycle[31]                ; Z80_cpu:Z80|\main:SecCycle[31]                ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[0]            ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[0]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[2]            ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[2]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[1]            ; Z80_cpu:Z80|UART:Uart1|TxBitCnt[1]            ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|TxReady                ; Z80_cpu:Z80|UART:Uart1|TxReady                ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|UART:Uart1|TRNSMITTED_ON_THIS_CLK ; Z80_cpu:Z80|UART:Uart1|TRNSMITTED_ON_THIS_CLK ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; Z80_cpu:Z80|without_stopping                  ; Z80_cpu:Z80|without_stopping                  ; CLK          ; CLK         ; 0.000        ; 0.000      ; 0.367      ;
++-------+-----------------------------------------------+-----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLK'                                                                 ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLK   ; Rise       ; CLK                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~100  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~100  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1000 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1000 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1001 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1001 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1002 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1002 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1003 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1003 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1004 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1004 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1005 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1005 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1006 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1006 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1007 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1007 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1008 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1008 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1009 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1009 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~101  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~101  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1010 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1010 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1011 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1011 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1012 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1012 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1013 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1013 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1014 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1014 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1015 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1015 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1016 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1016 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1017 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1017 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1018 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1018 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1019 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1019 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~102  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~102  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1020 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1020 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1021 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1021 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1022 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1022 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1023 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1023 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1024 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1024 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1025 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1025 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1026 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1026 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1027 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1027 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1028 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1028 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1029 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1029 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~103  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~103  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1030 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1030 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1031 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1031 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1032 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1032 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1033 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1033 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1034 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1034 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1035 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1035 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1036 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1036 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1037 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1037 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1038 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1038 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~1039 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~1039 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~104  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~104  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~105  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~105  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~106  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~106  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~107  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~107  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~108  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK   ; Rise       ; Memory:Mem1|ram~108  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK   ; Rise       ; Memory:Mem1|ram~109  ;
++--------+--------------+----------------+------------------+-------+------------+----------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; RESET     ; CLK        ; 5.602 ; 5.602 ; Rise       ; CLK             ;
+; RXD       ; CLK        ; 3.350 ; 3.350 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; RESET     ; CLK        ; -2.523 ; -2.523 ; Rise       ; CLK             ;
+; RXD       ; CLK        ; -2.104 ; -2.104 ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED[*]    ; CLK        ; 4.809 ; 4.809 ; Rise       ; CLK             ;
+;  LED[0]   ; CLK        ; 4.232 ; 4.232 ; Rise       ; CLK             ;
+;  LED[1]   ; CLK        ; 4.309 ; 4.309 ; Rise       ; CLK             ;
+;  LED[2]   ; CLK        ; 4.703 ; 4.703 ; Rise       ; CLK             ;
+;  LED[3]   ; CLK        ; 4.484 ; 4.484 ; Rise       ; CLK             ;
+;  LED[4]   ; CLK        ; 4.327 ; 4.327 ; Rise       ; CLK             ;
+;  LED[5]   ; CLK        ; 4.809 ; 4.809 ; Rise       ; CLK             ;
+;  LED[6]   ; CLK        ; 4.412 ; 4.412 ; Rise       ; CLK             ;
+;  LED[7]   ; CLK        ; 4.266 ; 4.266 ; Rise       ; CLK             ;
+;  LED[10]  ; CLK        ; 3.877 ; 3.877 ; Rise       ; CLK             ;
+;  LED[11]  ; CLK        ; 4.361 ; 4.361 ; Rise       ; CLK             ;
+;  LED[12]  ; CLK        ; 4.060 ; 4.060 ; Rise       ; CLK             ;
+;  LED[13]  ; CLK        ; 4.057 ; 4.057 ; Rise       ; CLK             ;
+;  LED[15]  ; CLK        ; 4.559 ; 4.559 ; Rise       ; CLK             ;
+; TXD       ; CLK        ; 4.623 ; 4.623 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED[*]    ; CLK        ; 3.877 ; 3.877 ; Rise       ; CLK             ;
+;  LED[0]   ; CLK        ; 4.232 ; 4.232 ; Rise       ; CLK             ;
+;  LED[1]   ; CLK        ; 4.309 ; 4.309 ; Rise       ; CLK             ;
+;  LED[2]   ; CLK        ; 4.703 ; 4.703 ; Rise       ; CLK             ;
+;  LED[3]   ; CLK        ; 4.484 ; 4.484 ; Rise       ; CLK             ;
+;  LED[4]   ; CLK        ; 4.327 ; 4.327 ; Rise       ; CLK             ;
+;  LED[5]   ; CLK        ; 4.809 ; 4.809 ; Rise       ; CLK             ;
+;  LED[6]   ; CLK        ; 4.412 ; 4.412 ; Rise       ; CLK             ;
+;  LED[7]   ; CLK        ; 4.266 ; 4.266 ; Rise       ; CLK             ;
+;  LED[10]  ; CLK        ; 3.877 ; 3.877 ; Rise       ; CLK             ;
+;  LED[11]  ; CLK        ; 4.361 ; 4.361 ; Rise       ; CLK             ;
+;  LED[12]  ; CLK        ; 4.060 ; 4.060 ; Rise       ; CLK             ;
+;  LED[13]  ; CLK        ; 4.057 ; 4.057 ; Rise       ; CLK             ;
+;  LED[15]  ; CLK        ; 4.559 ; 4.559 ; Rise       ; CLK             ;
+; TXD       ; CLK        ; 4.623 ; 4.623 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+------------+-------+----------+---------+---------------------+
+; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -25.601    ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+;  CLK             ; -25.601    ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+; Design-wide TNS  ; -14408.362 ; 0.0   ; 0.0      ; 0.0     ; -2055.813           ;
+;  CLK             ; -14408.362 ; 0.000 ; N/A      ; N/A     ; -2055.813           ;
++------------------+------------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; RESET     ; CLK        ; 13.069 ; 13.069 ; Rise       ; CLK             ;
+; RXD       ; CLK        ; 7.695  ; 7.695  ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; RESET     ; CLK        ; -2.523 ; -2.523 ; Rise       ; CLK             ;
+; RXD       ; CLK        ; -2.104 ; -2.104 ; Rise       ; CLK             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED[*]    ; CLK        ; 9.341 ; 9.341 ; Rise       ; CLK             ;
+;  LED[0]   ; CLK        ; 8.203 ; 8.203 ; Rise       ; CLK             ;
+;  LED[1]   ; CLK        ; 8.493 ; 8.493 ; Rise       ; CLK             ;
+;  LED[2]   ; CLK        ; 9.341 ; 9.341 ; Rise       ; CLK             ;
+;  LED[3]   ; CLK        ; 8.891 ; 8.891 ; Rise       ; CLK             ;
+;  LED[4]   ; CLK        ; 8.343 ; 8.343 ; Rise       ; CLK             ;
+;  LED[5]   ; CLK        ; 9.308 ; 9.308 ; Rise       ; CLK             ;
+;  LED[6]   ; CLK        ; 8.595 ; 8.595 ; Rise       ; CLK             ;
+;  LED[7]   ; CLK        ; 8.148 ; 8.148 ; Rise       ; CLK             ;
+;  LED[10]  ; CLK        ; 7.213 ; 7.213 ; Rise       ; CLK             ;
+;  LED[11]  ; CLK        ; 8.268 ; 8.268 ; Rise       ; CLK             ;
+;  LED[12]  ; CLK        ; 7.738 ; 7.738 ; Rise       ; CLK             ;
+;  LED[13]  ; CLK        ; 7.654 ; 7.654 ; Rise       ; CLK             ;
+;  LED[15]  ; CLK        ; 8.827 ; 8.827 ; Rise       ; CLK             ;
+; TXD       ; CLK        ; 8.870 ; 8.870 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LED[*]    ; CLK        ; 3.877 ; 3.877 ; Rise       ; CLK             ;
+;  LED[0]   ; CLK        ; 4.232 ; 4.232 ; Rise       ; CLK             ;
+;  LED[1]   ; CLK        ; 4.309 ; 4.309 ; Rise       ; CLK             ;
+;  LED[2]   ; CLK        ; 4.703 ; 4.703 ; Rise       ; CLK             ;
+;  LED[3]   ; CLK        ; 4.484 ; 4.484 ; Rise       ; CLK             ;
+;  LED[4]   ; CLK        ; 4.327 ; 4.327 ; Rise       ; CLK             ;
+;  LED[5]   ; CLK        ; 4.809 ; 4.809 ; Rise       ; CLK             ;
+;  LED[6]   ; CLK        ; 4.412 ; 4.412 ; Rise       ; CLK             ;
+;  LED[7]   ; CLK        ; 4.266 ; 4.266 ; Rise       ; CLK             ;
+;  LED[10]  ; CLK        ; 3.877 ; 3.877 ; Rise       ; CLK             ;
+;  LED[11]  ; CLK        ; 4.361 ; 4.361 ; Rise       ; CLK             ;
+;  LED[12]  ; CLK        ; 4.060 ; 4.060 ; Rise       ; CLK             ;
+;  LED[13]  ; CLK        ; 4.057 ; 4.057 ; Rise       ; CLK             ;
+;  LED[15]  ; CLK        ; 4.559 ; 4.559 ; Rise       ; CLK             ;
+; TXD       ; CLK        ; 4.623 ; 4.623 ; Rise       ; CLK             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Transfers                                                       ;
++------------+----------+--------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+--------------+----------+----------+----------+
+; CLK        ; CLK      ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------+----------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------+
+; Hold Transfers                                                        ;
++------------+----------+--------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+--------------+----------+----------+----------+
+; CLK        ; CLK      ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------+----------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 604   ; 604  ;
+; Unconstrained Output Ports      ; 14    ; 14   ;
+; Unconstrained Output Port Paths ; 14    ; 14   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
+    Info: Processing started: Sat May 11 19:34:32 2013
+Info: Command: quartus_sta Z80_cpu -c Z80_cpu
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Z80_cpu.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLK CLK
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -25.601
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -25.601    -14408.362 CLK 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631     -2055.813 CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -9.090
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -9.090     -4628.719 CLK 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380     -1682.380 CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 505 megabytes
+    Info: Processing ended: Sat May 11 19:34:35 2013
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+

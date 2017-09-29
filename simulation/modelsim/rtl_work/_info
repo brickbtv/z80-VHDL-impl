@@ -1,0 +1,215 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\VHDL\Z80_cpu\simulation\modelsim
+Ealu
+Z1 w1367947570
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z5 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z7 dD:\VHDL\Z80_cpu\simulation\modelsim
+Z8 8D:/VHDL/Z80_cpu/ALU.vhd
+Z9 FD:/VHDL/Z80_cpu/ALU.vhd
+l0
+L6
+Vdk8z>3cY:hJO^iYXCbZRP0
+Z10 OV;C;10.1b;51
+31
+Z11 !s108 1367949704.024000
+Z12 !s90 -reportprogress|300|-93|-work|work|-O0|D:/VHDL/Z80_cpu/ALU.vhd|
+Z13 !s107 D:/VHDL/Z80_cpu/ALU.vhd|
+Z14 o-93 -work work -O0
+Z15 tExplicit 1
+!s100 enJ<N2S^fV<ELc1H8oOkT3
+!i10b 1
+Aalu
+R2
+R3
+R4
+R5
+R6
+DEx4 work 3 alu 0 22 dk8z>3cY:hJO^iYXCbZRP0
+l67
+L26
+V4=91eg>`Z^[hgX0Ni4O[:0
+R10
+31
+R11
+R12
+R13
+R14
+R15
+!s100 ?a=@gGiXch1YW;YlZmUBF3
+!i10b 1
+Ememory
+Z16 w1367083562
+R4
+R5
+R6
+R7
+Z17 8D:/VHDL/Z80_cpu/Memory.vhd
+Z18 FD:/VHDL/Z80_cpu/Memory.vhd
+l0
+L5
+VeCE0M9i1@e0dNAJcW8eEd0
+R10
+31
+Z19 !s108 1367949704.222000
+Z20 !s90 -reportprogress|300|-93|-work|work|-O0|D:/VHDL/Z80_cpu/Memory.vhd|
+Z21 !s107 D:/VHDL/Z80_cpu/Memory.vhd|
+R14
+R15
+!s100 4004c[k>XLATD2SDGAL021
+!i10b 1
+Amemory
+R4
+R5
+R6
+DEx4 work 6 memory 0 22 eCE0M9i1@e0dNAJcW8eEd0
+l50
+L15
+VRZU[5o`XE[dGkDAM3FPeJ2
+R10
+31
+R19
+R20
+R21
+R14
+R15
+!s100 n8Nik=?NESM20`:;inj<62
+!i10b 1
+Euart
+Z22 w1367161017
+R4
+R5
+R6
+R7
+Z23 8D:/VHDL/Z80_cpu/uart.vhd
+Z24 FD:/VHDL/Z80_cpu/uart.vhd
+l0
+L15
+VT<D;o9g`63kD`GLm5_7AE0
+R10
+31
+Z25 !s108 1367949704.382000
+Z26 !s90 -reportprogress|300|-93|-work|work|-O0|D:/VHDL/Z80_cpu/uart.vhd|
+Z27 !s107 D:/VHDL/Z80_cpu/uart.vhd|
+R14
+R15
+!s100 9_G>_STI<aGWgiCd6@U@]0
+!i10b 1
+Artl
+R4
+R5
+R6
+DEx4 work 4 uart 0 22 T<D;o9g`63kD`GLm5_7AE0
+l53
+L39
+V_A_X_KWcOk8hWHKL[6EST2
+R10
+31
+R25
+R26
+R27
+R14
+R15
+!s100 Sl<cd70:1L`dOejNHfPhm1
+!i10b 1
+Ez80_cpu
+Z28 w1367946470
+Z29 DPx4 work 9 z80_types 0 22 G93Uc2F2c41PVC4KjLP`V0
+R4
+R2
+R3
+R5
+R6
+R7
+Z30 8D:/VHDL/Z80_cpu/Z80_cpu.vhd
+Z31 FD:/VHDL/Z80_cpu/Z80_cpu.vhd
+l0
+L8
+Vj>:@9WZQJUGzjT059I?=i1
+R10
+31
+Z32 !s108 1367949704.531000
+Z33 !s90 -reportprogress|300|-93|-work|work|-O0|D:/VHDL/Z80_cpu/Z80_cpu.vhd|
+Z34 !s107 D:/VHDL/Z80_cpu/Z80_cpu.vhd|
+R14
+R15
+!s100 714Lim5g1LEFJFWeWV?7K1
+!i10b 1
+Az80
+R29
+R4
+R2
+R3
+R5
+R6
+DEx4 work 7 z80_cpu 0 22 j>:@9WZQJUGzjT059I?=i1
+l131
+L26
+VkZOkE?8g<DQ^@`Rb;^7iO0
+R10
+31
+R32
+R33
+R34
+R14
+R15
+!s100 S?IN]FlmPmk_RFYEC`_Oz3
+!i10b 1
+Ez80_cpu_vhd_tst
+Z35 w1365770849
+R5
+R6
+R7
+Z36 8D:/VHDL/Z80_cpu/simulation/modelsim/Z80_cpu_vhd_tst.vht
+Z37 FD:/VHDL/Z80_cpu/simulation/modelsim/Z80_cpu_vhd_tst.vht
+l0
+L30
+V82l`N^fV8TDM_GW9^GFkW0
+R10
+31
+Z38 !s108 1367949704.710000
+Z39 !s90 -reportprogress|300|-93|-work|work|-O0|D:/VHDL/Z80_cpu/simulation/modelsim/Z80_cpu_vhd_tst.vht|
+Z40 !s107 D:/VHDL/Z80_cpu/simulation/modelsim/Z80_cpu_vhd_tst.vht|
+R14
+R15
+!s100 6DHRkORDfeCPgfi[CQa521
+!i10b 1
+Az80_cpu_arch
+R5
+R6
+DEx4 work 15 z80_cpu_vhd_tst 0 22 82l`N^fV8TDM_GW9^GFkW0
+l51
+L32
+VMJMjKVTaV`S?BOMW2;LMn2
+!s100 ;D]<iRj57U`jNV0NhQ1i[3
+R10
+31
+R38
+R39
+R40
+R14
+R15
+!i10b 1
+Pz80_types
+w1361133870
+R7
+8D:/VHDL/Z80_cpu/Z80_types.vhd
+FD:/VHDL/Z80_cpu/Z80_types.vhd
+l0
+L1
+VG93Uc2F2c41PVC4KjLP`V0
+!s100 Z?J_g^XXmjgHRnYcC3WGB2
+R10
+31
+!i10b 1
+!s108 1367949704.881000
+!s90 -reportprogress|300|-93|-work|work|-O0|D:/VHDL/Z80_cpu/Z80_types.vhd|
+!s107 D:/VHDL/Z80_cpu/Z80_types.vhd|
+R14
+R15

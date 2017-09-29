@@ -1,0 +1,17 @@
+entity Z80_top is
+	port (
+			ADDR: inout 	std_logic_vector(15 downto 0);	-- адресная шина
+			DATA: inout 	std_logic_vector(7 downto 0);		-- шина данных
+			WR:	inout 	std_logic;								-- запись
+			HALT:	out 		std_logic;								-- состояние останова
+			RESET:in 		std_logic;								-- сброс
+			CLK:	in 		std_logic;								-- такт
+			
+			-- DBG
+			LED:   out 		std_logic_vector(15 downto 0);	
+			
+			-- rs232
+			RXD                	:    in        Std_Logic;               	        -- RX pin
+         TXD                	:    out     	Std_Logic	                       -- TX pin
+			);	
+end entity;

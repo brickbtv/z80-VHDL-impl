@@ -1,0 +1,583 @@
+Analysis & Synthesis report for Z80_cpu
+Fri May 24 13:41:11 2013
+Quartus II 64-Bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Z80_cpu:Z80|UART:Uart1
+ 14. Parameter Settings for Inferred Entity Instance: Z80_cpu:Z80|lpm_add_sub:Add26
+ 15. Parameter Settings for Inferred Entity Instance: Z80_cpu:Z80|lpm_add_sub:Add28
+ 16. Port Connectivity Checks: "Z80_cpu:Z80|UART:Uart1"
+ 17. Port Connectivity Checks: "Z80_cpu:Z80|ALU:Alu1"
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 24 13:41:11 2013    ;
+; Quartus II 64-Bit Version          ; 12.1 Build 177 11/07/2012 SJ Web Edition ;
+; Revision Name                      ; Z80_cpu                                  ;
+; Top-level Entity Name              ; Z80_top                                  ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 9,279                                    ;
+;     Total combinational functions  ; 8,154                                    ;
+;     Dedicated logic registers      ; 1,681                                    ;
+; Total registers                    ; 1681                                     ;
+; Total pins                         ; 20                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; Z80_top            ; Z80_cpu            ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; Memory.vhd                       ; yes             ; User VHDL File               ; D:/VHDL/Z80_cpu/Memory.vhd                                                  ;         ;
+; Z80_cpu.vhd                      ; yes             ; User VHDL File               ; D:/VHDL/Z80_cpu/Z80_cpu.vhd                                                 ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File               ; D:/VHDL/Z80_cpu/ALU.vhd                                                     ;         ;
+; uart.vhd                         ; yes             ; User VHDL File               ; D:/VHDL/Z80_cpu/uart.vhd                                                    ;         ;
+; Z80_top.vhd                      ; yes             ; User VHDL File               ; D:/VHDL/Z80_cpu/Z80_top.vhd                                                 ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/lpm_add_sub.tdf         ;         ;
+; addcore.inc                      ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/addcore.inc             ;         ;
+; look_add.inc                     ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/look_add.inc            ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/bypassff.inc            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/altshift.inc            ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc ;         ;
+; aglobal121.inc                   ; yes             ; Megafunction                 ; d:/altera_free/12.1/quartus/libraries/megafunctions/aglobal121.inc          ;         ;
+; db/add_sub_9ri.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/VHDL/Z80_cpu/db/add_sub_9ri.tdf                                          ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 9,279 ;
+;                                             ;       ;
+; Total combinational functions               ; 8154  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 5711  ;
+;     -- 3 input functions                    ; 1646  ;
+;     -- <=2 input functions                  ; 797   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 7619  ;
+;     -- arithmetic mode                      ; 535   ;
+;                                             ;       ;
+; Total registers                             ; 1681  ;
+;     -- Dedicated logic registers            ; 1681  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 20    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out                             ; 1681  ;
+; Total fan-out                               ; 34870 ;
+; Average fan-out                             ; 3.54  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Library Name ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+; |Z80_top                              ; 8154 (0)          ; 1681 (0)     ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Z80_top                                                          ;              ;
+;    |Memory:Mem1|                      ; 824 (824)         ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Memory:Mem1                                              ;              ;
+;    |Z80_cpu:Z80|                      ; 7330 (7126)       ; 657 (577)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80                                              ;              ;
+;       |ALU:Alu1|                      ; 62 (62)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80|ALU:Alu1                                     ;              ;
+;       |UART:Uart1|                    ; 96 (96)           ; 56 (56)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80|UART:Uart1                                   ;              ;
+;       |lpm_add_sub:Add26|             ; 24 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80|lpm_add_sub:Add26                            ;              ;
+;          |add_sub_9ri:auto_generated| ; 24 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80|lpm_add_sub:Add26|add_sub_9ri:auto_generated ;              ;
+;       |lpm_add_sub:Add28|             ; 22 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80|lpm_add_sub:Add28                            ;              ;
+;          |add_sub_9ri:auto_generated| ; 22 (22)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Z80_top|Z80_cpu:Z80|lpm_add_sub:Add28|add_sub_9ri:auto_generated ;              ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++------------------------------------------+---------------------------------------------+
+; Register name                            ; Reason for Removal                          ;
++------------------------------------------+---------------------------------------------+
+; Z80_cpu:Z80|\main:add_to_PC[16..31]      ; Lost fanout                                 ;
+; Z80_cpu:Z80|\main:add_to_PC[3..9,11..15] ; Merged with Z80_cpu:Z80|\main:add_to_PC[10] ;
+; Z80_cpu:Z80|\main:IXorIY[1..9,11..31]    ; Merged with Z80_cpu:Z80|\main:IXorIY[10]    ;
+; Z80_cpu:Z80|\main:IXorIY[10]             ; Stuck at GND due to stuck port data_in      ;
+; Z80_cpu:Z80|ADDR[8]~reg0                 ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[9]~reg0                 ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[10]~reg0                ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[11]~reg0                ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[12]~reg0                ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[13]~reg0                ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[14]~reg0                ; Lost fanout                                 ;
+; Z80_cpu:Z80|ADDR[15]~reg0                ; Lost fanout                                 ;
+; Z80_cpu:Z80|\main:ADDR_saver[8..15]      ; Lost fanout                                 ;
+; Total Number of Removed Registers = 75   ;                                             ;
++------------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                             ;
++---------------------------+--------------------+----------------------------------------+
+; Register name             ; Reason for Removal ; Registers Removed due to This Register ;
++---------------------------+--------------------+----------------------------------------+
+; Z80_cpu:Z80|ADDR[8]~reg0  ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[8]        ;
+; Z80_cpu:Z80|ADDR[9]~reg0  ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[9]        ;
+; Z80_cpu:Z80|ADDR[10]~reg0 ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[10]       ;
+; Z80_cpu:Z80|ADDR[11]~reg0 ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[11]       ;
+; Z80_cpu:Z80|ADDR[12]~reg0 ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[12]       ;
+; Z80_cpu:Z80|ADDR[13]~reg0 ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[13]       ;
+; Z80_cpu:Z80|ADDR[14]~reg0 ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[14]       ;
+; Z80_cpu:Z80|ADDR[15]~reg0 ; Lost Fanouts       ; Z80_cpu:Z80|\main:ADDR_saver[15]       ;
++---------------------------+--------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1681  ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 125   ;
+; Number of registers using Asynchronous Clear ; 365   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1510  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; Z80_cpu:Z80|ADDR[0]~reg0                ; 264     ;
+; Z80_cpu:Z80|rs_DATA_IN[6]               ; 27      ;
+; Z80_cpu:Z80|rs_DATA_IN[1]               ; 22      ;
+; Z80_cpu:Z80|rs_DATA_IN[5]               ; 20      ;
+; Z80_cpu:Z80|rs_DATA_IN[0]               ; 21      ;
+; Z80_cpu:Z80|rs_DATA_IN[3]               ; 16      ;
+; Z80_cpu:Z80|rs_DATA_IN[2]               ; 17      ;
+; Z80_cpu:Z80|ADDR[1]~reg0                ; 260     ;
+; Z80_cpu:Z80|ADDR[2]~reg0                ; 260     ;
+; Z80_cpu:Z80|ADDR[3]~reg0                ; 260     ;
+; Z80_cpu:Z80|ADDR[4]~reg0                ; 36      ;
+; Z80_cpu:Z80|ADDR[5]~reg0                ; 36      ;
+; Z80_cpu:Z80|ADDR[6]~reg0                ; 20      ;
+; Z80_cpu:Z80|ADDR[7]~reg0                ; 4       ;
+; Z80_cpu:Z80|\main:add_to_PC[0]          ; 17      ;
+; Z80_cpu:Z80|SP[0]                       ; 21      ;
+; Z80_cpu:Z80|SP[1]                       ; 12      ;
+; Z80_cpu:Z80|SP[2]                       ; 12      ;
+; Z80_cpu:Z80|SP[3]                       ; 12      ;
+; Z80_cpu:Z80|SP[4]                       ; 12      ;
+; Z80_cpu:Z80|SP[5]                       ; 12      ;
+; Z80_cpu:Z80|SP[6]                       ; 12      ;
+; Z80_cpu:Z80|WR                          ; 10      ;
+; Total number of inverted registers = 23 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:recieving_RAM_counter[4] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:recieving_reg_counter[2] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|As[2]                          ;
+; 4:1                ; 48 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|Ls[5]                          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Z80_top|Z80_cpu:Z80|UART:Uart1|RxBitCnt[2]         ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|UART:Uart1|CntTX[6]            ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 13 LEs               ; 26 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|UART:Uart1|CntRX[4]            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 0 LEs                ; 160 LEs                ; Yes        ; |Z80_top|Z80_cpu:Z80|ALU:Alu1|RES16[1]              ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|LED[6]                         ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:ADDR_saver[5]            ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:debug_counter[14]        ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|ALU:Alu1|RES8[3]               ;
+; 11:1               ; 7 bits    ; 49 LEs        ; 14 LEs               ; 35 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|UART:Uart1|TxBuf[0]            ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 3 LEs                ; 21 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|UART:Uart1|TxBitCnt[1]         ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|UART:Uart1|RxBuf[3]            ;
+; 216:1              ; 8 bits    ; 1152 LEs      ; 0 LEs                ; 1152 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:Operand1[7]              ;
+; 255:1              ; 8 bits    ; 1360 LEs      ; 0 LEs                ; 1360 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:Operand3[1]              ;
+; 245:1              ; 2 bits    ; 326 LEs       ; 2 LEs                ; 324 LEs                ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:DD[0]                    ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|IX[10]                         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|IY[15]                         ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|IX[1]                          ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |Z80_top|Z80_cpu:Z80|IY[4]                          ;
+; 136:1              ; 3 bits    ; 270 LEs       ; 6 LEs                ; 264 LEs                ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:DDD[2]                   ;
+; 281:1              ; 2 bits    ; 374 LEs       ; 48 LEs               ; 326 LEs                ; Yes        ; |Z80_top|Z80_cpu:Z80|rs_DATA_IN[7]                  ;
+; 255:1              ; 8 bits    ; 1360 LEs      ; 8 LEs                ; 1352 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:Operand2[1]              ;
+; 274:1              ; 8 bits    ; 1456 LEs      ; 64 LEs               ; 1392 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:PairValue[9]             ;
+; 274:1              ; 2 bits    ; 364 LEs       ; 4 LEs                ; 360 LEs                ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:SS[0]                    ;
+; 278:1              ; 8 bits    ; 1480 LEs      ; 64 LEs               ; 1416 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|\main:PairValue[2]             ;
+; 291:1              ; 8 bits    ; 1552 LEs      ; 112 LEs              ; 1440 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|DATA_OUT[2]                    ;
+; 281:1              ; 6 bits    ; 1122 LEs      ; 360 LEs              ; 762 LEs                ; Yes        ; |Z80_top|Z80_cpu:Z80|rs_DATA_IN[1]                  ;
+; 332:1              ; 7 bits    ; 1547 LEs      ; 98 LEs               ; 1449 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|ADDR[6]~reg0                   ;
+; 332:1              ; 8 bits    ; 1768 LEs      ; 112 LEs              ; 1656 LEs               ; Yes        ; |Z80_top|Z80_cpu:Z80|ADDR[8]~reg0                   ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |Z80_top|Z80_cpu:Z80|Mux1575                        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Z80_top|Z80_cpu:Z80|Mux686                         ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Z80_top|Z80_cpu:Z80|Mux412                         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Z80_top|Z80_cpu:Z80|Mux406                         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |Z80_top|Z80_cpu:Z80|Mux345                         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |Z80_top|Z80_cpu:Z80|Mux1004                        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; No         ; |Z80_top|Z80_cpu:Z80|ALU:Alu1|Add4                  ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |Z80_top|Z80_cpu:Z80|ALU:Alu1|Add4                  ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |Z80_top|Z80_cpu:Z80|ALU:Alu1|Add0                  ;
+; 9:1                ; 13 bits   ; 78 LEs        ; 52 LEs               ; 26 LEs                 ; No         ; |Z80_top|Z80_cpu:Z80|Mux1974                        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; No         ; |Z80_top|Z80_cpu:Z80|ALU:Alu1|Add0                  ;
+; 256:1              ; 32 bits   ; 5440 LEs      ; 32 LEs               ; 5408 LEs               ; No         ; |Z80_top|Z80_cpu:Z80|Mux2078                        ;
+; 68:1               ; 32 bits   ; 1440 LEs      ; 32 LEs               ; 1408 LEs               ; No         ; |Z80_top|Z80_cpu:Z80|Mux824                         ;
+; 258:1              ; 32 bits   ; 5504 LEs      ; 64 LEs               ; 5440 LEs               ; No         ; |Z80_top|Z80_cpu:Z80|SecCycle                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Z80_cpu:Z80|UART:Uart1 ;
++----------------+----------+-----------------------------------------+
+; Parameter Name ; Value    ; Type                                    ;
++----------------+----------+-----------------------------------------+
+; UART_Speed     ; 9600     ; Signed Integer                          ;
+; System_CLK     ; 50000000 ; Signed Integer                          ;
++----------------+----------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Z80_cpu:Z80|lpm_add_sub:Add26 ;
++------------------------+-------------+-----------------------------------------+
+; Parameter Name         ; Value       ; Type                                    ;
++------------------------+-------------+-----------------------------------------+
+; LPM_WIDTH              ; 16          ; Untyped                                 ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                                 ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                                 ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                 ;
+; LPM_PIPELINE           ; 0           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                 ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                 ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                 ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                      ;
+; DEVICE_FAMILY          ; Cyclone II  ; Untyped                                 ;
+; USE_WYS                ; OFF         ; Untyped                                 ;
+; STYLE                  ; FAST        ; Untyped                                 ;
+; CBXI_PARAMETER         ; add_sub_9ri ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                          ;
++------------------------+-------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Z80_cpu:Z80|lpm_add_sub:Add28 ;
++------------------------+-------------+-----------------------------------------+
+; Parameter Name         ; Value       ; Type                                    ;
++------------------------+-------------+-----------------------------------------+
+; LPM_WIDTH              ; 16          ; Untyped                                 ;
+; LPM_REPRESENTATION     ; UNSIGNED    ; Untyped                                 ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                                 ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                 ;
+; LPM_PIPELINE           ; 0           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                 ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                 ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                 ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                      ;
+; DEVICE_FAMILY          ; Cyclone II  ; Untyped                                 ;
+; USE_WYS                ; OFF         ; Untyped                                 ;
+; STYLE                  ; FAST        ; Untyped                                 ;
+; CBXI_PARAMETER         ; add_sub_9ri ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                          ;
++------------------------+-------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Z80_cpu:Z80|UART:Uart1"                                                                 ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; rst_n    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; rx_valid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; tx_busy  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rx_busy  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Z80_cpu:Z80|ALU:Alu1"                                                                ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; flags ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:02:52     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
+    Info: Processing started: Fri May 24 13:38:13 2013
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Z80_cpu -c Z80_cpu
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
+    Info (12022): Found design unit 1: Memory-Memory
+    Info (12023): Found entity 1: Memory
+Info (12021): Found 2 design units, including 1 entities, in source file z80_cpu.vhd
+    Info (12022): Found design unit 1: Z80_cpu-Z80
+    Info (12023): Found entity 1: Z80_cpu
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-ALU
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 2 design units, including 1 entities, in source file uart.vhd
+    Info (12022): Found design unit 1: UART-rtl
+    Info (12023): Found entity 1: UART
+Info (12021): Found 2 design units, including 1 entities, in source file z80_top.vhd
+    Info (12022): Found design unit 1: Z80_top-RTL
+    Info (12023): Found entity 1: Z80_top
+Info (12021): Found 2 design units, including 1 entities, in source file altpll0.vhd
+    Info (12022): Found design unit 1: altpll0-SYN
+    Info (12023): Found entity 1: altpll0
+Info (12127): Elaborating entity "Z80_top" for the top level hierarchy
+Info (12128): Elaborating entity "Memory" for hierarchy "Memory:Mem1"
+Warning (10036): Verilog HDL or VHDL warning at Memory.vhd(49): object "ADDR_r" assigned a value but never read
+Info (12128): Elaborating entity "Z80_cpu" for hierarchy "Z80_cpu:Z80"
+Warning (10036): Verilog HDL or VHDL warning at Z80_cpu.vhd(108): object "rs_RX_VALID" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Z80_cpu.vhd(110): object "rs_TX_BUSY" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Z80_cpu.vhd(111): object "rs_RX_BUSY" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Z80_cpu.vhd(487): object "recieving_reg_started" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Z80_cpu.vhd(489): object "recieving_RAM_started" assigned a value but never read
+Warning (10631): VHDL Process Statement warning at Z80_cpu.vhd(150): inferring latch(es) for signal or variable "rs_RESET", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Z80_cpu.vhd(150): inferring latch(es) for signal or variable "LED", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "LED[8]" at Z80_cpu.vhd(150)
+Info (10041): Inferred latch for "LED[9]" at Z80_cpu.vhd(150)
+Info (10041): Inferred latch for "LED[14]" at Z80_cpu.vhd(150)
+Info (10041): Inferred latch for "rs_RESET" at Z80_cpu.vhd(150)
+Info (12128): Elaborating entity "ALU" for hierarchy "Z80_cpu:Z80|ALU:Alu1"
+Warning (10873): Using initial value X (don't care) for net "FLAGS[5]" at ALU.vhd(22)
+Warning (10873): Using initial value X (don't care) for net "FLAGS[3]" at ALU.vhd(22)
+Info (12128): Elaborating entity "UART" for hierarchy "Z80_cpu:Z80|UART:Uart1"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "Memory:Mem1|ram" is uninferred due to asynchronous read logic
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Z80_cpu:Z80|Add26"
+    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "Z80_cpu:Z80|Add28"
+Info (12130): Elaborated megafunction instantiation "Z80_cpu:Z80|lpm_add_sub:Add26"
+Info (12133): Instantiated megafunction "Z80_cpu:Z80|lpm_add_sub:Add26" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+    Info (12134): Parameter "LPM_DIRECTION" = "DEFAULT"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "ONE_INPUT_IS_CONSTANT" = "NO"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_9ri.tdf
+    Info (12023): Found entity 1: add_sub_9ri
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LED[8]" is stuck at GND
+    Warning (13410): Pin "LED[9]" is stuck at GND
+    Warning (13410): Pin "LED[14]" is stuck at GND
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:prog_load_counter[31] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:prog_load_counter[0] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[1] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[0] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[2] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[31] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[30] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[29] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[28] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[27] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[26] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[25] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[24] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[23] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[22] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[21] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[20] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[19] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[18] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[17] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[16] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[15] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[14] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[13] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[12] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[11] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[10] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[9] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[8] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[7] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[6] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[5] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[4] will power up to Low
+    Critical Warning (18010): Register Z80_cpu:Z80|\main:SecCycle[3] will power up to Low
+Info (17049): 32 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 9480 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 9460 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 598 megabytes
+    Info: Processing ended: Fri May 24 13:41:11 2013
+    Info: Elapsed time: 00:02:58
+    Info: Total CPU time (on all processors): 00:02:57
+
+

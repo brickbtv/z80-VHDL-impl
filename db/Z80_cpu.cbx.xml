@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Z80_cpu">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Z80_top|Z80_cpu:Z80|lpm_add_sub:Add26" CBX_FILE_NAME="add_sub_9ri.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Z80_top|Z80_cpu:Z80|lpm_add_sub:Add28" CBX_FILE_NAME="add_sub_9ri.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
